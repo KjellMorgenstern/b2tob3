@@ -12,9 +12,12 @@ from b2tob3.b2tob3 import make_replacements
 
 
 def get_replacement(fname):
+    file_type = 'html'
+    if fname.endswith('.haml'):
+        file_type = 'css'
     with open(join(DIR_TESTS, fname), 'r') as f:
         content = f.read()
-    return make_replacements(content)
+    return make_replacements(content, file_type)
 
 
 class B2tob3TestSuite(unittest.TestCase):
@@ -26,4 +29,12 @@ class B2tob3TestSuite(unittest.TestCase):
 
     def test_html_match(self):
         (content, count) = get_replacement('fluid.html')
+        self.assertRegexpMatches(content, 'col-md-3')
+
+    def test_haml_count(self):
+        (content, count) = get_replacement('fluid.html.haml')
+        self.assertEqual(count, 22)
+
+    def test_haml_match(self):
+        (content, count) = get_replacement('fluid.html.haml')
         self.assertRegexpMatches(content, 'col-md-3')
