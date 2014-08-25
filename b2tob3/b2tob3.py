@@ -12,45 +12,72 @@ from optparse import OptionParser
 
 # List of regular expression replacements tuples to be executed in order.
 # Does not include all changes from:
-# http://getbootstrap.com/getting-started/#migration
+# http://getbootstrap.com/migration
 
 # HTML class="btn" class='btn' class='something btn somethingelse'
 # CSS .btn .btn.something
-affix = r'(\b)'
+affix = r'(["\'\s\.\{]|\Z)'
 
-# omitted classs: .brand .checkbox.inline .radio.inline
+# omitted classs: .checkbox.inline .radio.inline
 
-general_regexes = [
-    (re.compile(affix + r'span(\d+)' + affix), '\\1col-md-\\2\\3'),
-    (re.compile(affix + r'offset(\d+)' + affix), '\\1col-md-offset-\\2\\3'),
-    (re.compile(affix + r'hero-unit' + affix), '\\1jumbotron\\2'),
+all_regexes = {
+    'general': [
+        (re.compile(affix + r'span(\d+)' + affix), '\\1col-md-\\2\\3'),
+        (re.compile(affix + r'offset(\d+)' + affix), '\\1col-md-offset-\\2\\3'),
+        (re.compile(affix + r'hero-unit' + affix), '\\1jumbotron\\2'),
 
-    (re.compile(affix + r'(container|row)-fluid' + affix), '\\1\\2\\3'),
-    (re.compile(affix + r'nav-(collapse|toggle)' + affix), '\\1navbar-\\2\\3'),
+        (re.compile(affix + r'(container|row)-fluid' + affix), '\\1\\2\\3'),
+        (re.compile(affix + r'nav-(collapse|toggle)' + affix), '\\1navbar-\\2\\3'),
 
-    (re.compile(affix + r'(input|btn)-small' + affix), '\\1\\2-sm\\3'),
-    (re.compile(affix + r'(input|btn)-large' + affix), '\\1\\2-lg\\3'),
+        (re.compile(affix + r'(input|btn)-small' + affix), '\\1\\2-sm\\3'),
+        (re.compile(affix + r'(input|btn)-large' + affix), '\\1\\2-lg\\3'),
 
-    (re.compile(affix + r'btn-navbar' + affix), '\\1navbar-btn\\2'),
-    (re.compile(affix + r'btn-mini' + affix), '\\1btn-xs\\2'),
-    (re.compile(affix + r'unstyled' + affix), '\\1list-unstyled\\2'),
+        (re.compile(affix + r'btn-navbar' + affix), '\\1navbar-btn\\2'),
+        (re.compile(affix + r'btn-mini' + affix), '\\1btn-xs\\2'),
+        (re.compile(affix + r'unstyled' + affix), '\\1list-unstyled\\2'),
 
-    (re.compile(affix + r'(visible|hidden)-phone' + affix), '\\1\\2-sm\\3'),
-    (re.compile(affix + r'(visible|hidden)-tablet' + affix), '\\1\\2-md\\3'),
-    (re.compile(affix + r'(visible|hidden)-desktop' + affix), '\\1\\2-lg\\3'),
+        (re.compile(affix + r'(visible|hidden)-phone' + affix), '\\1\\2-xs\\3'),
+        (re.compile(affix + r'(visible|hidden)-tablet' + affix), '\\1\\2-sm\\3'),
+        (re.compile(affix + r'(visible|hidden)-desktop' + affix), '\\1\\2-lg\\3'),
 
-    (re.compile(affix + r'input-(prepend|append)' + affix), '\\1input-group\\3'),
+        (re.compile(affix + r'input-(prepend|append)' + affix), '\\1input-group\\3'),
 
-    # Should these regexes be more restriced because class names are more
-    # likely to occurr in other places?
-    (re.compile(affix + r'inline' + affix), '\\1list-inline\\2'),
-    (re.compile(affix + r'add-on' + affix), '\\1input-group-addon\\2'),
-    (re.compile(affix + r'thumbnail' + affix), '\\1img-thumbnail\\2'),
-]
-
-special_regexes = {
-    'html': [(re.compile(affix + r'icon-(\w+)' + affix), '\\1glyphicon glyphicon-\\2\\3'),],
-    'css': [(re.compile(affix + r'icon-(\w+)' + affix), '\\1glyphicon.glyphicon-\\2\\3'),],
+        # Should these regexes be more restriced because class names are more
+        # likely to occurr in other places?
+        (re.compile(affix + r'inline' + affix), '\\1list-inline\\2'),
+        (re.compile(affix + r'add-on' + affix), '\\1input-group-addon\\2'),
+        (re.compile(affix + r'thumbnail' + affix), '\\1img-thumbnail\\2'),
+    ],
+    # still missing:
+    #  .navbar .nav -> .navbar-nav
+    #  .btn -> .btn .btn-default
+    #  .control-group.(warning|error|success) -> .form-group.has-*
+    #  .(checkbox|radio).inline -> .*-inline
+    #  .img-polaroid -> .img-thumbnail
+    #  ul.unstyled -> .list-unstyled
+    #  ul.inline -> .list-inline
+    #  .label -> .label .label-default
+    #  .table .error -> .table .danger
+    #  .accordion-group -> .panel .panel-default
+    'more': [
+        (re.compile(affix + r'brand' + affix), '\\1navbar-brand\\2'),
+        (re.compile(affix + r'(alert|text)-error' + affix), '\\1\\2-danger\\3'),
+        (re.compile(affix + r'input-block-level' + affix), '\\1form-control\\2'),
+        (re.compile(affix + r'control-group' + affix), '\\1form-group\\2'),
+        (re.compile(affix + r'muted' + affix), '\\1text-muted\\2'),
+        (re.compile(affix + r'label-important' + affix), '\\1label-danger\\2'),
+        (re.compile(affix + r'bar(-\w+)?' + affix), '\\1progress-bar\\2\\3'),
+        (re.compile(affix + r'accordion' + affix), '\\1panel-group\\2'),
+        (re.compile(affix + r'accordion-heading' + affix), '\\1panel-heading\\2'),
+        (re.compile(affix + r'accordion-body' + affix), '\\1panel-collapse\\2'),
+        (re.compile(affix + r'accordion-inner' + affix), '\\1panel-body\\2'),
+    ],
+    'html': [
+        (re.compile(affix + r'icon-(\w+)' + affix), '\\1glyphicon glyphicon-\\2\\3'),
+    ],
+    'css': [
+        (re.compile(affix + r'icon-(\w+)' + affix), '\\1glyphicon.glyphicon-\\2\\3'),
+    ],
 }
 
 extensions = {
@@ -62,7 +89,7 @@ def make_replacements(content, file_type):
     """Perform replacements in file content. Return changed content and the
     number of replacements made."""
 
-    regexes = general_regexes + special_regexes[file_type]
+    regexes = all_regexes['general'] + all_regexes[file_type]
 
     count_rep = 0
     for regex in regexes:
