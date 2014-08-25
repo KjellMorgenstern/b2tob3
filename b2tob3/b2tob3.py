@@ -16,14 +16,13 @@ from optparse import OptionParser
 
 # HTML class="btn" class='btn' class='something btn somethingelse'
 # CSS .btn .btn.something
-affix = r'(["\'\s\.])'
+affix = r'(\b)'
 
 # omitted classs: .brand .checkbox.inline .radio.inline
 
-regexes = [
+general_regexes = [
     (re.compile(affix + r'span(\d+)' + affix), '\\1col-md-\\2\\3'),
     (re.compile(affix + r'offset(\d+)' + affix), '\\1col-md-offset-\\2\\3'),
-    (re.compile(affix + r'icon-(\w+)' + affix), '\\1glyphicon glyphicon-\\2\\3'),
     (re.compile(affix + r'hero-unit' + affix), '\\1jumbotron\\2'),
 
     (re.compile(affix + r'(container|row)-fluid' + affix), '\\1\\2\\3'),
@@ -49,12 +48,21 @@ regexes = [
     (re.compile(affix + r'thumbnail' + affix), '\\1img-thumbnail\\2'),
 ]
 
-extensions = ('.html', '.htm', '.css', '.js')
+special_regexes = {
+    'html': [(re.compile(affix + r'icon-(\w+)' + affix), '\\1glyphicon glyphicon-\\2\\3'),],
+    'css': [(re.compile(affix + r'icon-(\w+)' + affix), '\\1glyphicon.glyphicon-\\2\\3'),],
+}
 
+extensions = {
+    'html': ('.html', '.htm', '.js'),
+    'css': ('.css', '.haml', '.less'),
+}
 
-def make_replacements(content):
+def make_replacements(content, file_type):
     """Perform replacements in file content. Return changed content and the
     number of replacements made."""
+
+    regexes = general_regexes + special_regexes[file_type]
 
     count_rep = 0
     for regex in regexes:
@@ -86,8 +94,11 @@ def main():
 
     for root, dirs, files in os.walk(pwd):
         for f in files:
-            if not f.endswith(extensions):
+            if not f.endswith(extensions['html'] + extensions['css']):
                 continue
+            file_type = 'html'
+            if f.endswith(extensions['css']):
+                file_type = 'css'
 
             count_files += 1
             count_file_subs = 0
@@ -96,7 +107,7 @@ def main():
             with open(fname, 'r') as curr_file:
                 content = curr_file.read()
 
-            (content, count_file_subs) = make_replacements(content)
+            (content, count_file_subs) = make_replacements(content, file_type)
             if count_file_subs == 0:
                 continue
 
