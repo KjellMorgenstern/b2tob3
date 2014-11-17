@@ -59,6 +59,7 @@ all_regexes = {
     #  .label -> .label .label-default
     #  .table .error -> .table .danger
     #  .accordion-group -> .panel .panel-default
+	# Font Awesome: https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4
     'more': [
         (re.compile(affix + r'brand' + affix), '\\1navbar-brand\\2'),
         (re.compile(affix + r'(alert|text)-error' + affix), '\\1\\2-danger\\3'),
@@ -73,9 +74,21 @@ all_regexes = {
         (re.compile(affix + r'accordion-inner' + affix), '\\1panel-body\\2'),
     ],
     'html': [
-        (re.compile(affix + r'icon-(\w+)' + affix), '\\1glyphicon glyphicon-\\2\\3'),
+        (re.compile(affix + r'icon-rotate-(\w+)' + affix), '\\1fa fa-rotate-\\2\\3'),
+        (re.compile(affix + r'icon-spin-(\w+)' + affix), '\\1fa fa-spin-\\2\\3'),
+        (re.compile(affix + r'icon-li-(\w+)' + affix), '\\1fa fa-li-\\2\\3'),
+        (re.compile(affix + r'icons-ul-(\w+)' + affix), '\\1fa fa-ul-\\2\\3'),
+        (re.compile(affix + r'icon-large-(\w+)' + affix), '\\1fa fa-lg-\\2\\3'),
+        (re.compile(affix + r'icon-fixed-width-(\w+)' + affix), '\\1fa fa-fw-\\2\\3'),
+        (re.compile(affix + r'icon-(\w+)' + affix), '\\1fa fa-\\2\\3'),
     ],
     'css': [
+        (re.compile(affix + r'icon-rotate-(\w+)' + affix), '\\1fa fa-rotate-\\2\\3'),
+        (re.compile(affix + r'icon-spin-(\w+)' + affix), '\\1fa fa-spin-\\2\\3'),		
+        (re.compile(affix + r'icon-li-(\w+)' + affix), '\\1fa fa-li-\\2\\3'),		
+        (re.compile(affix + r'icon-ul-(\w+)' + affix), '\\1fa fa-ul-\\2\\3'),		
+        (re.compile(affix + r'icon-large-(\w+)' + affix), '\\1fa fa-lg-\\2\\3'),		
+        (re.compile(affix + r'icon-fixed-width-(\w+)' + affix), '\\1fa fa-fw-\\2\\3'),		
         (re.compile(affix + r'icon-(\w+)' + affix), '\\1glyphicon.glyphicon-\\2\\3'),
     ],
 }
@@ -83,6 +96,8 @@ all_regexes = {
 extensions = {
     'html': ('.html', '.htm', '.js'),
     'css': ('.css', '.haml', '.less'),
+    'language': ('.java', '.php'),
+    'jsp': ('.jsp', '.jspf'),
 }
 
 def make_replacements(content, file_type):
@@ -121,12 +136,12 @@ def main():
 
     for root, dirs, files in os.walk(pwd):
         for f in files:
-            if not f.endswith(extensions['html'] + extensions['css']):
+            if not f.endswith(extensions['html'] + extensions['css'] + extensions['language'] + extensions['jsp']):
                 continue
             file_type = 'html'
             if f.endswith(extensions['css']):
                 file_type = 'css'
-
+				
             count_files += 1
             count_file_subs = 0
 

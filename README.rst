@@ -20,6 +20,9 @@ the ``d`` option like ``b2tob3 -d /path/to/dir``.
 b2tob3 does not fully automate migration, but it takes away some of the tedious
 work. Still, you'll most likely need to perform manual fixes too.
 
+Including as well the FontAwesome Migration from v3 to v4
+  https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4
+
 Installation
 ------------
 
@@ -27,6 +30,13 @@ Installation
 
     pip install b2tob3
 
+::
+   
+    pip uninstall b2tob3
+    python setup.py install
+    pip install b2tob3
+    pip install b2tob3 --upgrade   
+	
 Usage
 -----
 
@@ -35,6 +45,14 @@ Usage
     cd /project/html/
     b2tob3
 
+Extension Supports
+-------------------
+
+* Style: '.css', '.haml', '.less'	
+* HTML: '.html', '.htm', '.js'
+* Script files: '.jsp', '.jspf'
+* Language: '.java', '.php'
+	
 Follow these steps to avoid frustration:
 ----------------------------------------
 
