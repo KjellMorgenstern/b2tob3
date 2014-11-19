@@ -77,7 +77,11 @@ all_regexes = {
     'html': [
         (re.compile(affix + r'btn' + affix), '\\1btn btn-default\\2'),
         (re.compile(affix + r'well-large' + affix), '\\1well-lg\\2'),
-        (re.compile(affix + r'well-small' + affix), '\\1well-sm\\2'),        
+        (re.compile(affix + r'well-small' + affix), '\\1well-sm\\2'),
+        (re.compile(affix + r'(alert|text)-error' + affix), '\\1\\2-danger\\3'),
+        (re.compile(affix + r'input-block-level' + affix), '\\1form-control\\2'),
+        (re.compile(affix + r'control-group' + affix), '\\1form-group\\2'),
+        (re.compile(affix + r'label-important' + affix), '\\1label-danger\\2'),                                
         (re.compile(affix + r'icon-rotate-(\w+)' + affix), '\\1fa fa-rotate-\\2\\3'), # icons
         (re.compile(affix + r'icon-spin-(\w+)' + affix), '\\1fa fa-spin-\\2\\3'),
         (re.compile(affix + r'icon-li-(\w+)' + affix), '\\1fa fa-li-\\2\\3'),
