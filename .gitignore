@@ -33,3 +33,4 @@ nosetests.xml
 
 # Docs
 docs/_build/
+/.settings/org.eclipse.core.resources.prefs

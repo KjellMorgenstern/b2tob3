@@ -3,11 +3,15 @@ b2tob3
 
 .. image:: https://badge.fury.io/py/b2tob3.png
         :target: http://badge.fury.io/py/b2tob3
-.. image:: https://travis-ci.org/yaph/b2tob3.png?branch=master
-        :target: https://travis-ci.org/yaph/b2tob3
+.. image:: https://travis-ci.org/metrey/b2tob3.png?branch=master
+        :target: https://travis-ci.org/metrey/b2tob3
 
-Easier migration from Boostrap 2 to Boostrap 3
-----------------------------------------------
+Easier migration from Boostrap 2 to Boostrap 3 / FontAwesome v3 to v4
+---------------------------------------------------------------------
+::
+     Use at your own risk, I modify it for my need only
+      
+     ~ metrey
 
 b2tob3 is a command line tool to help migrate Web projects from bootstrap 2
 to bootstrap 3 by performing a set of replacements that reflect bootstrap 3
@@ -51,7 +55,7 @@ Extension Supports
 * Style: '.css', '.haml', '.less'	
 * HTML: '.html', '.htm', '.js'
 * Script files: '.jsp', '.jspf'
-* Language: '.java', '.php'
+* Language: '.java', '.php' (Use it carefully)
 	
 Follow these steps to avoid frustration:
 ----------------------------------------
