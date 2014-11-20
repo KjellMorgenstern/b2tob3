@@ -26,7 +26,8 @@ all_regexes = {
         (re.compile(affix + r'offset(\d+)' + affix), '\\1col-md-offset-\\2\\3'),
         (re.compile(affix + r'hero-unit' + affix), '\\1jumbotron\\2'),
 
-        (re.compile(affix + r'(container|row)-fluid' + affix), '\\1\\2\\3'),
+        #(re.compile(affix + r'(container|row)-fluid' + affix), '\\1\\2\\3'),
+        (re.compile(affix + r'row-fluid' + affix), '\\1row\\2'),
         (re.compile(affix + r'nav-(collapse|toggle)' + affix), '\\1navbar-\\2\\3'),
 
         (re.compile(affix + r'(input|btn)-small' + affix), '\\1\\2-sm\\3'),
@@ -81,7 +82,11 @@ all_regexes = {
         (re.compile(affix + r'(alert|text)-error' + affix), '\\1\\2-danger\\3'),
         (re.compile(affix + r'input-block-level' + affix), '\\1form-control\\2'),
         (re.compile(affix + r'control-group' + affix), '\\1form-group\\2'),
-        (re.compile(affix + r'label-important' + affix), '\\1label-danger\\2'),                                
+        (re.compile(affix + r'label-important' + affix), '\\1label-danger\\2'),        
+        (re.compile(affix + r'accordion-heading' + affix), '\\1panel-heading\\2'),
+        (re.compile(affix + r'accordion-body' + affix), '\\1panel-collapse\\2'),
+        (re.compile(affix + r'accordion-inner' + affix), '\\1panel-body\\2'),
+        (re.compile(affix + r'accordion' + affix), '\\1panel-group\\2'),
         (re.compile(affix + r'icon-rotate-(\w+)' + affix), '\\1fa fa-rotate-\\2\\3'), # icons
         (re.compile(affix + r'icon-spin-(\w+)' + affix), '\\1fa fa-spin-\\2\\3'),
         (re.compile(affix + r'icon-li-(\w+)' + affix), '\\1fa fa-li-\\2\\3'),
