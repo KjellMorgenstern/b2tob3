@@ -488,7 +488,7 @@ def main():
             if count_file_subs == 0:
                 continue
 
-            with open(fname, 'w') as curr_file:
+            with open(fname, 'w', newline='') as curr_file:
                 curr_file.write(content)
             if options.verbose:
                 print(('File changed: %s' % fname))
