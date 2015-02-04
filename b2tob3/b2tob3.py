@@ -161,6 +161,7 @@ all_regexes = {
         (re.compile(affix + r'icon-external-link-sign' + affix), '\\1fa fa-external-link-square\\2'),
         (re.compile(affix + r'icon-eye-close' + affix), '\\1fa fa-eye-slash\\2'),
         (re.compile(affix + r'icon-eye-open' + affix), '\\1fa fa-eye\\2'),
+        (re.compile(affix + r'icon-eye' + affix), '\\1fa-eye\\2'),
         (re.compile(affix + r'icon-facebook-sign' + affix), '\\1fa fa-facebook-square\\2'),
         (re.compile(affix + r'icon-facetime-video' + affix), '\\1fa fa-video-camera\\2'),
         (re.compile(affix + r'icon-file-alt' + affix), '\\1fa fa-file-o\\2'),
@@ -169,6 +170,7 @@ all_regexes = {
         (re.compile(affix + r'icon-folder-close-alt' + affix), '\\1fa fa-folder-o\\2'),
         (re.compile(affix + r'icon-folder-close' + affix), '\\1fa fa-folder\\2'),
         (re.compile(affix + r'icon-folder-open-alt' + affix), '\\1fa fa-folder-open-o\\2'),
+        (re.compile(affix + r'icon-folder-open' + affix), '\\1fa fa-folder-open\\2'),
         (re.compile(affix + r'icon-food' + affix), '\\1fa fa-cutlery\\2'),
         (re.compile(affix + r'icon-frown' + affix), '\\1fa fa-frown-o\\2'),
         (re.compile(affix + r'icon-fullscreen' + affix), '\\1fa fa-arrows-alt\\2'),
@@ -255,6 +257,7 @@ all_regexes = {
         (re.compile(affix + r'icon-upload' + affix), '\\1fa fa-arrow-circle-o-up\\2'),
         (re.compile(affix + r'icon-upload-alt' + affix), '\\1fa fa-upload\\2'),
         (re.compile(affix + r'icon-warning-sign' + affix), '\\1fa fa-exclamation-triangle\\2'),
+        (re.compile(affix + r'icon-warning' + affix), '\\1fa fa-warning\\2'),
         (re.compile(affix + r'icon-xing-sign' + affix), '\\1fa fa-xing-square\\2'),
         (re.compile(affix + r'icon-youtube-sign' + affix), '\\1fa fa-youtube-square\\2'),
         (re.compile(affix + r'icon-zoom-in' + affix), '\\1fa fa-search-plus\\2'),
@@ -263,6 +266,13 @@ all_regexes = {
         (re.compile(affix + r'icon-2x' + affix), '\\1fa-2x\\2'),
         (re.compile(affix + r'icon-4x' + affix), '\\1fa-4x\\2'),
         (re.compile(affix + r'icon-(\w+)' + affix), '\\1fa fa-\\2\\3'), # end regular expression
+        # manually cases
+        (re.compile(affix + r'icon-white' + affix), '\\1fa-inverse\\2'),
+        (re.compile(affix + r'icon-chevron-right' + affix), '\\1fa fa-chevron-right\\2'),
+        (re.compile(affix + r'icon-chevron-down' + affix), '\\1fa fa-chevron-down\\2'),
+        (re.compile(affix + r'icon-cloud-upload' + affix), '\\1fa fa-cloud-upload\\2'),
+        (re.compile(affix + r'icon-fast-forward' + affix), '\\1fa fa-fast-forward\\2'),
+        (re.compile(affix + r'icon-list-ul' + affix), '\\1fa fa-list-ul\\2'),
     ],
     'css': [
         #(re.compile(affix + r'icon-rotate-(\w+)' + affix), '\\1fa fa-rotate-\\2\\3'),
@@ -308,12 +318,12 @@ all_regexes = {
         (re.compile(affix + r'icon-copy' + affix), '\\1fa-files-o\\2'),
         (re.compile(affix + r'icon-cut' + affix), '\\1fa-scissors\\2'),
         (re.compile(affix + r'icon-dashboard' + affix), '\\1fa-tachometer\\2'),
-        (re.compile(affix + r'icon-double-angle-down' + affix), '\\1fa fa-angle-double-down\\2'),
-        (re.compile(affix + r'icon-double-angle-left' + affix), '\\1fa fa-angle-double-left\\2'),
-        (re.compile(affix + r'icon-double-angle-right' + affix), '\\1fa fa-angle-double-right\\2'),
-        (re.compile(affix + r'icon-double-angle-up' + affix), '\\1fa fa-angle-double-up\\2'),
-        (re.compile(affix + r'icon-download' + affix), '\\1fa fa-arrow-circle-o-down\\2'),
-        (re.compile(affix + r'icon-download-alt' + affix), '\\1fa fa-download\\2'),
+        (re.compile(affix + r'icon-double-angle-down' + affix), '\\1fa-angle-double-down\\2'),
+        (re.compile(affix + r'icon-double-angle-left' + affix), '\\1fa-angle-double-left\\2'),
+        (re.compile(affix + r'icon-double-angle-right' + affix), '\\1fa-angle-double-right\\2'),
+        (re.compile(affix + r'icon-double-angle-up' + affix), '\\1fa-angle-double-up\\2'),
+        (re.compile(affix + r'icon-download' + affix), '\\1fa-arrow-circle-o-down\\2'),
+        (re.compile(affix + r'icon-download-alt' + affix), '\\1fa-download\\2'),
         (re.compile(affix + r'icon-edit-sign' + affix), '\\1fa-pencil-square\\2'),
         (re.compile(affix + r'icon-edit' + affix), '\\1fa-pencil-square-o\\2'),
         (re.compile(affix + r'icon-ellipsis-horizontal' + affix), '\\1fa-ellipsis-h\\2'),
@@ -325,6 +335,7 @@ all_regexes = {
         (re.compile(affix + r'icon-external-link-sign' + affix), '\\1fa-external-link-square\\2'),
         (re.compile(affix + r'icon-eye-close' + affix), '\\1fa-eye-slash\\2'),
         (re.compile(affix + r'icon-eye-open' + affix), '\\1fa-eye\\2'),
+        (re.compile(affix + r'icon-eye' + affix), '\\1fa-eye\\2'),
         (re.compile(affix + r'icon-facebook-sign' + affix), '\\1fa-facebook-square\\2'),
         (re.compile(affix + r'icon-facetime-video' + affix), '\\1fa-video-camera\\2'),
         (re.compile(affix + r'icon-file-alt' + affix), '\\1fa-file-o\\2'),
@@ -333,7 +344,7 @@ all_regexes = {
         (re.compile(affix + r'icon-folder-close-alt' + affix), '\\1fa-folder-o\\2'),
         (re.compile(affix + r'icon-folder-close' + affix), '\\1fa-folder\\2'),
         (re.compile(affix + r'icon-folder-open-alt' + affix), '\\1fa-folder-open-o\\2'),
-        (re.compile(affix + r'icon-folder-open' + affix), '\\1fa fa-folder-open\\2'),
+        (re.compile(affix + r'icon-folder-open' + affix), '\\1fa-folder-open\\2'),
         (re.compile(affix + r'icon-food' + affix), '\\1fa-cutlery\\2'),
         (re.compile(affix + r'icon-frown' + affix), '\\1fa-frown-o\\2'),
         (re.compile(affix + r'icon-fullscreen' + affix), '\\1fa-arrows-alt\\2'),
@@ -425,6 +436,14 @@ all_regexes = {
         (re.compile(affix + r'icon-shopping-cart' + affix), '\\1fa-shopping-cart\\2'),
         (re.compile(affix + r'icon-2x' + affix), '\\1fa-2x\\2'),
         (re.compile(affix + r'icon-4x' + affix), '\\1fa-4x\\2'),
+        (re.compile(affix + r'icon-4x' + affix), '\\1fa-4x\\2'),
+        # manually cases
+        (re.compile(affix + r'icon-white' + affix), '\\1fa-inverse\\2'),
+        (re.compile(affix + r'icon-chevron-right' + affix), '\\1fa-chevron-right\\2'),
+        (re.compile(affix + r'icon-chevron-down' + affix), '\\1fa-chevron-down\\2'),
+        (re.compile(affix + r'icon-cloud-upload' + affix), '\\1fa-cloud-upload\\2'),
+        (re.compile(affix + r'icon-fast-forward' + affix), '\\1fa-fast-forward\\2'),
+        (re.compile(affix + r'icon-list-ul' + affix), '\\1fa-list-ul\\2'),
     ],
 }
 
@@ -450,6 +469,8 @@ def make_replacements(content, file_type):
 
 def main():
     parser = OptionParser()
+
+    print('Migration tool from Bootstrap v2 to v3 with Font Awesome v3 to v4')
 
     parser.add_option(
         "-d", "--directory", dest="pwd",
