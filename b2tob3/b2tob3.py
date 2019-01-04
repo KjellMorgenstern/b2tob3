@@ -47,7 +47,7 @@ all_regexes = {
         # likely to occurr in other places?
         (re.compile(affix + r'inline' + affix), '\\1list-inline\\2'),
         (re.compile(affix + r'add-on' + affix), '\\1input-group-addon\\2'),
-        (re.compile(affix + r'thumbnail' + affix), '\\1img-thumbnail\\2'),        
+        (re.compile(affix + r'thumbnail' + affix), '\\1img-thumbnail\\2'),
     ],
     # still missing:
     #  .navbar .nav -> .navbar-nav
@@ -59,7 +59,7 @@ all_regexes = {
     #  ul.inline -> .list-inline
     #  .label -> .label .label-default
     #  .table .error -> .table .danger
-    #  .accordion-group -> .panel .panel-default    
+    #  .accordion-group -> .panel .panel-default
     'more': [
         (re.compile(affix + r'btn' + affix), '\\1btn btn-default\\2'),
         (re.compile(affix + r'brand' + affix), '\\1navbar-brand\\2'),
@@ -74,7 +74,7 @@ all_regexes = {
         (re.compile(affix + r'accordion-body' + affix), '\\1panel-collapse\\2'),
         (re.compile(affix + r'accordion-inner' + affix), '\\1panel-body\\2'),
     ],
-    # Font Awesome: https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4	
+    # Font Awesome: https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4
     'html': [
         (re.compile(affix + r'btn' + affix), '\\1btn btn-default\\2'),
         (re.compile(affix + r'well-large' + affix), '\\1well-lg\\2'),
@@ -82,7 +82,7 @@ all_regexes = {
         (re.compile(affix + r'(alert|text)-error' + affix), '\\1\\2-danger\\3'),
         (re.compile(affix + r'input-block-level' + affix), '\\1form-control\\2'),
         (re.compile(affix + r'control-group' + affix), '\\1form-group\\2'),
-        (re.compile(affix + r'label-important' + affix), '\\1label-danger\\2'),        
+        (re.compile(affix + r'label-important' + affix), '\\1label-danger\\2'),
         (re.compile(affix + r'accordion-heading' + affix), '\\1panel-heading\\2'),
         (re.compile(affix + r'accordion-body' + affix), '\\1panel-collapse\\2'),
         (re.compile(affix + r'accordion-inner' + affix), '\\1panel-body\\2'),
@@ -96,7 +96,7 @@ all_regexes = {
         (re.compile(affix + r'icon-fixed-width-(\w+)' + affix), '\\1fa fa-fw-\\2\\3'),
         (re.compile(affix + r'icon-chevron-sign-(\w+)' + affix), '\\1fa fa-chevron-circle-\\2\\3'),
         (re.compile(affix + r'icon-chevron-(\w+)' + affix), '\\1fa fa-chevron-\\2\\3'),
-        (re.compile(affix + r'icon-arrow-(\w+)' + affix), '\\1fa fa-arrow-\\2\\3'),        
+        (re.compile(affix + r'icon-arrow-(\w+)' + affix), '\\1fa fa-arrow-\\2\\3'),
         (re.compile(affix + r'icon-circle-arrow-(\w+)' + affix), '\\1fa fa-arrow-circle-\\2\\3'),
         (re.compile(affix + r'icon-double-angle-(\w+)' + affix), '\\1fa fa-angle-double-\\2\\3'),
         (re.compile(affix + r'icon-fixed-width' + affix), '\\1fa fa-fw\\2'),
@@ -107,14 +107,14 @@ all_regexes = {
         (re.compile(affix + r'icon-th-list' + affix), '\\1fa fa-th-list\\2'),
         (re.compile(affix + r'icon-user-md' + affix), '\\1fa fa-user-md\\2'),
         (re.compile(affix + r'icon-external-link' + affix), '\\1fa fa-external-link\\2'),
-        
+
         (re.compile(affix + r'icon-ban-circle' + affix), '\\1fa fa-ban\\2'),
-        (re.compile(affix + r'icon-bar-chart' + affix), '\\1fa fa-bar-chart-o\\2'),        
+        (re.compile(affix + r'icon-bar-chart' + affix), '\\1fa fa-bar-chart-o\\2'),
         (re.compile(affix + r'icon-beaker' + affix), '\\1fa fa-flask\\2'),
-        (re.compile(affix + r'icon-bell' + affix), '\\1fa fa-bell-o\\2'),        
+        (re.compile(affix + r'icon-bell' + affix), '\\1fa fa-bell-o\\2'),
         (re.compile(affix + r'icon-bell-alt' + affix), '\\1fa fa-bell\\2'),
         (re.compile(affix + r'icon-bitbucket-sign' + affix), '\\1fa fa-bitbucket-square\\2'),
-        (re.compile(affix + r'icon-bookmark-empty' + affix), '\\1fa fa-bookmark-o\\2'),        
+        (re.compile(affix + r'icon-bookmark-empty' + affix), '\\1fa fa-bookmark-o\\2'),
         (re.compile(affix + r'icon-building' + affix), '\\1fa fa-building-o\\2'),
         (re.compile(affix + r'icon-calendar-empty' + affix), '\\1fa fa-calendar-o\\2'),
         (re.compile(affix + r'icon-check-empty' + affix), '\\1fa fa-square-o\\2'),
@@ -131,23 +131,23 @@ all_regexes = {
         #(re.compile(affix + r'icon-circle-arrow-left' + affix), '\\1fa-arrow-circle-left\\2'),
         #(re.compile(affix + r'icon-circle-arrow-right' + affix), '\\1fa-arrow-circle-right\\2'),
         #(re.compile(affix + r'icon-circle-arrow-up' + affix), '\\1fa-arrow-circle-up\\2'),
-        
+
         (re.compile(affix + r'icon-circle-blank' + affix), '\\1fa fa-circle-o\\2'),
         (re.compile(affix + r'icon-cny' + affix), '\\1fa fa-rub\\2'),
         (re.compile(affix + r'icon-collapse-alt' + affix), '\\1fa fa-minus-square-o\\2'),
         (re.compile(affix + r'icon-collapse-top' + affix), '\\1fa fa-caret-square-o-up\\2'),
         (re.compile(affix + r'icon-collapse' + affix), '\\1fa fa-caret-square-o-down\\2'),
         (re.compile(affix + r'icon-comment-alt' + affix), '\\1fa fa-comment-o\\2'),
-        (re.compile(affix + r'icon-comments-alt' + affix), '\\1fa fa-comments-o\\2'),        
+        (re.compile(affix + r'icon-comments-alt' + affix), '\\1fa fa-comments-o\\2'),
         (re.compile(affix + r'icon-copy' + affix), '\\1fa fa-files-o\\2'),
         (re.compile(affix + r'icon-cut' + affix), '\\1fa fa-scissors\\2'),
         (re.compile(affix + r'icon-dashboard' + affix), '\\1fa fa-tachometer\\2'),
-        
+
         #(re.compile(affix + r'icon-double-angle-down' + affix), '\\1fa-angle-double-down\\2'),
         #(re.compile(affix + r'icon-double-angle-left' + affix), '\\1fa-angle-double-left\\2'),
         #(re.compile(affix + r'icon-double-angle-right' + affix), '\\1fa-angle-double-right\\2'),
         #(re.compile(affix + r'icon-double-angle-up' + affix), '\\1fa-angle-double-up\\2'),
-        
+
         (re.compile(affix + r'icon-download' + affix), '\\1fa fa-arrow-circle-o-down\\2'),
         (re.compile(affix + r'icon-download-alt' + affix), '\\1fa fa-download\\2'),
         (re.compile(affix + r'icon-edit-sign' + affix), '\\1fa fa-pencil-square\\2'),
@@ -178,12 +178,12 @@ all_regexes = {
         (re.compile(affix + r'icon-google-plus-sign' + affix), '\\1fa fa-google-plus-square\\2'),
         (re.compile(affix + r'icon-group' + affix), '\\1fa fa-users\\2'),
         (re.compile(affix + r'icon-h-sign' + affix), '\\1fa fa-h-square\\2'),
-        
+
         #(re.compile(affix + r'icon-hand-down' + affix), '\\1fa-hand-o-down\\2'),
         #(re.compile(affix + r'icon-hand-left' + affix), '\\1fa-hand-o-left\\2'),
         #(re.compile(affix + r'icon-hand-right' + affix), '\\1fa-hand-o-right\\2'),
         #(re.compile(affix + r'icon-hand-up' + affix), '\\1fa-hand-o-up\\2'),
-        
+
         (re.compile(affix + r'icon-hdd' + affix), '\\1fa fa-hdd-o\\2'),
         (re.compile(affix + r'icon-heart-empty' + affix), '\\1fa fa-heart-o\\2'),
         (re.compile(affix + r'icon-hospital' + affix), '\\1fa fa-hospital-o\\2'),
@@ -276,11 +276,11 @@ all_regexes = {
     ],
     'css': [
         #(re.compile(affix + r'icon-rotate-(\w+)' + affix), '\\1fa fa-rotate-\\2\\3'),
-        #(re.compile(affix + r'icon-spin-(\w+)' + affix), '\\1fa fa-spin-\\2\\3'),		
-        #(re.compile(affix + r'icon-li-(\w+)' + affix), '\\1fa fa-li-\\2\\3'),		
-        #(re.compile(affix + r'icon-ul-(\w+)' + affix), '\\1fa fa-ul-\\2\\3'),		
-        #(re.compile(affix + r'icon-large-(\w+)' + affix), '\\1fa fa-lg-\\2\\3'),		
-        #(re.compile(affix + r'icon-fixed-width-(\w+)' + affix), '\\1fa fa-fw-\\2\\3'),		
+        #(re.compile(affix + r'icon-spin-(\w+)' + affix), '\\1fa fa-spin-\\2\\3'),
+        #(re.compile(affix + r'icon-li-(\w+)' + affix), '\\1fa fa-li-\\2\\3'),
+        #(re.compile(affix + r'icon-ul-(\w+)' + affix), '\\1fa fa-ul-\\2\\3'),
+        #(re.compile(affix + r'icon-large-(\w+)' + affix), '\\1fa fa-lg-\\2\\3'),
+        #(re.compile(affix + r'icon-fixed-width-(\w+)' + affix), '\\1fa fa-fw-\\2\\3'),
         #(re.compile(affix + r'icon-(\w+)' + affix), '\\1fa fa-\\2\\3'), #end regular expression
         (re.compile(affix + r'icon-fixed-width' + affix), '\\1fa-fw\\2'),
         (re.compile(affix + r'icon-large' + affix), '\\1fa-lg\\2'),
@@ -448,8 +448,8 @@ all_regexes = {
 }
 
 extensions = {
-    'html': ('.html', '.htm', '.js'),
-    'css': ('.css', '.haml', '.less'),
+    'html': ('.html', '.htm', '.js', '.erb'),
+    'css': ('.css', '.haml', '.less', '.scss'),
     'language': ('.java', '.php'),
     'jsp': ('.jsp', '.jspf'),
 }
@@ -493,11 +493,14 @@ def main():
     for root, dirs, files in os.walk(pwd):
         for f in files:
             if not f.endswith(extensions['html'] + extensions['css'] + extensions['language'] + extensions['jsp']):
+                print("Ingore %s", os.path.join(root, f))
                 continue
+
+            print("Process %s", os.path.join(root, f))
             file_type = 'html'
             if f.endswith(extensions['css']):
                 file_type = 'css'
-				
+
             count_files += 1
             count_file_subs = 0
 
